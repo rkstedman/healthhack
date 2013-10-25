@@ -1,0 +1,25 @@
+{
+  "name": "healthhack",
+  "version": "0.0.1",
+  "authors": [
+    "Rachael Stedman <rkstedman@gmail.com>"
+  ],
+  "description": "breast cancer risk test",
+  "main": "lib/app.js",
+  "keywords": [
+    "breast cancer",
+    "test"
+  ],
+  "license": "MIT",
+  "homepage": "index.html",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "public/components",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "~2.0.3"
+  }
+}
