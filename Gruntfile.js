@@ -14,8 +14,13 @@ module.exports = function(grunt) {
     },
     // copy bower install javascript files and css over
     copy: {
-      deps: { 
-        expand: true, flatten: true, src: 'public/components/jquery/jquery.min.js', dest: 'public/javascripts/', filter: 'isFile' 
+      deps: {
+	files: [ 
+        { expand: true, flatten: true, src: 'public/components/jquery/jquery.min.js', dest: 'public/javascripts/', filter: 'isFile'},
+        { expand: true, flatten: true, src: 'public/components/bootstrap/dist/js/bootstrap.js', dest: 'public/javascripts/', filter: 'isFile' },
+        { expand: true, flatten: true, src: 'public/components/bootstrap/dist/css/bootstrap.css', dest: 'public/stylesheets/', filter: 'isFile'},
+        { expand: true, flatten: true, src: 'public/components/bootstrap/dist/fonts/*', dest: 'public/fonts/', filter: 'isFile' }
+	]
       }
     },
     uglify: {
