@@ -6,7 +6,7 @@ module.exports = function(grunt) {
     // jshint custom spa and api javascript files
     jshint: {
       spa: {
-        src: ['./public/javascripts/*.js']
+      //  src: ['./public/javascripts/*.js']
       },
       api: {
         src: ['./lib/app.js']
@@ -17,6 +17,7 @@ module.exports = function(grunt) {
       deps: {
 	files: [ 
         { expand: true, flatten: true, src: 'public/components/jquery/jquery.min.js', dest: 'public/javascripts/', filter: 'isFile'},
+        { expand: true, flatten: true, src: 'public/components/jquery/jquery.min.map', dest: 'public/javascripts/', filter: 'isFile'},
         { expand: true, flatten: true, src: 'public/components/bootstrap/dist/js/bootstrap.js', dest: 'public/javascripts/', filter: 'isFile' },
         { expand: true, flatten: true, src: 'public/components/bootstrap/dist/css/bootstrap.css', dest: 'public/stylesheets/', filter: 'isFile'},
         { expand: true, flatten: true, src: 'public/components/bootstrap/dist/fonts/*', dest: 'public/fonts/', filter: 'isFile' }
