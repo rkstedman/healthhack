@@ -5,7 +5,35 @@ html
     link(rel='stylesheet', href='/stylesheets/bootstrap.css')
   link(rel='stylesheet', href='/stylesheets/style.css')
   body
-    block content
+    .navbar.navbar-inverse.navbar-fixed-top
+        .container
+            .navbar-header
+                button.navbar-toggle(type='button', data-toggle='collapse', data-target='.navbar-collapse')
+                    span.icon-bar
+                    span.icon-bar
+                    span.icon-bar
+                a.navbar-brand(href='#') Brisk
+            .collapse.navbar-collapse
+                ul.nav.navbar-nav
+                    li.active
+                        a(href='#') Home
+                    li
+                        a(href='#about') About
+                    li
+                        a(href='#contact') Contact
+//
+          /.nav-collapse
+    .container
+        .starter-template
+            h1 
+              img(src='/images/bknow.png')
+            p.lead
+              | What's YOUR risk for breast cancer?
+              | Know quicker. Be safer. Get Bris.kr
+//
+       /.container
+//
+       Bootstrap core JavaScript
   
 script('javacsripts/jquery.min.js')
 script('javacsripts/bootstrap.js')
