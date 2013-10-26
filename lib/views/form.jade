@@ -2,34 +2,33 @@ extends layout
 
 block content
   div.container
+    h1 Input Form
     form(role='form')
       div.row
-        div.form-group
-          div.col-md-6
-            label.control-label Gender
-              div.radio
-                label
-                  input(type='radio', name='gender')
-                  | Male
-              div.radio
-                label
-                  input(type='radio', name='gender')
-                  | Female
-        div.form-group
-          div.col-md-6
-            label.control-label Ethnicity
-              div.radio
-                label
-                  input(type='radio', name='ethnicity')
-                  | Caucasian
-              div.radio
-                label
-                  input(type='radio', name='ethnicity')
-                  | African American
-              div.radio
-                label
-                  input(type='radio', name='ethnicity')
-                  | Other
+        div.form-group.col-md-6
+          label.control-label Gender
+            div.radio
+              label
+                input(type='radio', name='gender')
+                | Male
+            div.radio
+              label
+                input(type='radio', name='gender')
+                | Female
+        div.form-group.col-md-6
+          label.control-label Ethnicity
+            div.radio
+              label
+                input(type='radio', name='ethnicity')
+                | Caucasian
+            div.radio
+              label
+                input(type='radio', name='ethnicity')
+                | African American
+            div.radio
+              label
+                input(type='radio', name='ethnicity')
+                | Other
       div.row
         div.form-group
           div.col-md-12
