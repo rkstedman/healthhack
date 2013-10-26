@@ -1,10 +1,10 @@
 {
-  "name": "healthhack",
+  "name": "mygeknow",
   "version": "0.0.1",
   "authors": [
     "Rachael Stedman <rkstedman@gmail.com>"
   ],
-  "description": "breast cancer risk test",
+  "description": "genetics testing facilitation tool",
   "main": "lib/app.js",
   "keywords": [
     "breast cancer",
