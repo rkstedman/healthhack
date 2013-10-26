@@ -1,7 +1,36 @@
 extends layout
 
 block content
-
+  div.container
+    h1 Input Form
+    form(role='form')
+      div.row
+        div.form-group.col-md-6
+          label.control-label Gender
+            div.radio
+              label
+                input(type='radio', name='gender')
+                | Male
+            div.radio
+              label
+                input(type='radio', name='gender')
+                | Female
+        div.form-group.col-md-6
+          label.control-label Ethnicity
+            div.radio
+              label
+                select.form-control(name='ethnicity')
+                  option Caucasian
+                  option African American
+                  option Other
+      div.row
+        div.form-group.col-md-6
+          label.control-label Year of birth
+            div.radio
+              label
+                select.form-control(name='birthyear')
+                  -for (var year = 1900; year < 2000; year++)
+                    option #{year}
   
  
     
