@@ -1,10 +1,35 @@
 extends layout
 
 block content
-  .container
-    .row
-      .col-lg-12
-        h1 About Us
-        p Communicating Whole Exome Sequencing (WES) possibilities to the every day person
-        p 
-          a(href='https://github.com/healthhack-melb/wiki/wiki/Geknow') wiki
+  .section
+    .container
+      .row
+        div(class="col-lg-12 text-center")
+          h2 What is Geknow?
+          hr
+            | Communicating Whole Exome Sequencing (WES) possibilities to the every day person
+          p Learn more
+          ul 
+            li
+              a(href='https://github.com/healthhack-melb/wiki/wiki/Geknow') Team Wiki
+            li
+              a(href='https://github.com/rkstedman/healthhack') Github
+      div(class="col-lg-12 text-center")
+        h2 When was Geknow built?
+        hr
+      div(class="col-lg-12")
+        p Geknow was built as part of 
+          a(href='http://healthhackmelb.com/') HealthHack 
+          | hosted by Thoughtworks in Melbourne, Australia. HealthHack is a weekend datahack working on problems that medical researchers face. Medical researchers create vast amounts of data, but don’t always have good ways to analyse, visualise and communicate it. On the weekend we’ll have available for you real life medical researchers, their problems, their data.
+          
+  .section
+    .container
+      .row
+        div(class="col-lg-12 text-center")
+          h2 Who built Geknow?
+          hr
+        div(class="col-lg-4 col-md-4 col-sm-6")
+          img(class="img-responsive img-home-portfolio",src="http://placehold.it/700x450")
+        div(class="col-lg-8 col-md-8 col-sm-6")
+          h3 Alison
+          p this is my bio
