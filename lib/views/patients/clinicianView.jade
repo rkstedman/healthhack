@@ -1,2 +1,92 @@
 .container
   h1 clinician
+  .panel-group#accordion
+        .panel.panel-default
+          .panel-heading
+            h4.panel-title
+              a.accordion-toggle(data-toggle="collapse",data-parent="#accordion",href="#collapseOne") Coincidental findings
+          #collapseOne(class="panel-collapse collapse in")
+            .panel-body
+              p Variations in our genes is what makes us unique as people, and most
+                of these variations are benign, having no affect on our appearance,
+                our behaviour or our risk of disease.
+
+              p In addition to the target gene variations that your geneticist has
+                discussed with you, your test may also display variations that fit
+                within one of the following four categories.
+
+              P Please select which categories you wish to be informed about should a gene mutation exist.
+
+              form(role='form')
+                table.table
+                  tr
+                    th Coincidental variation category
+                    th Your projected risk
+                    th Your choice
+                  tr
+                    td
+                      p
+                        b Medically actionable disease causing variations
+                      p  changes in genes known to cause diseases that are treatable (for example breast cancer).
+                    td
+                      #{ patient.actionable_risk }
+                    td
+                      div.radio
+                        label
+                          input(type='radio', name='actionable_choice')
+                          | Yes
+                      div.radio
+                        label
+                          input(type='radio', name='actionable_choice')
+                          | No
+                  tr
+                    td 
+                      p
+                        b Medically unactionable disease causing variations
+                      p changes in genes known to cause diseases that are not yet treatable (for example Huntington's disease).
+                    td
+                      #{ patient.unactionable_risk }
+                    td
+                      div.radio
+                        label
+                          input(type='radio', name='unactionable_choice')
+                          | Yes
+                      div.radio
+                        label
+                          input(type='radio', name='unactionable_choice')
+                          | No
+
+                  tr
+                    td
+                      p 
+                        b Predisposition variations
+                      p changes in genes known to increase the risk (never to 100%) of certain diseases (for example Alhzeimers)
+                    td
+                      #{ patient.predisposition_risk }
+                    td
+                      div.radio
+                        label
+                          input(type='radio', name='predisposition_choice')
+                          | Yes
+                      div.radio
+                        label
+                          input(type='radio', name='predisposition_choice')
+                          | No
+
+                  tr
+                    td
+                      p
+                        b Reproductive variations (autosomal recessive carrier status)
+                      p changes in genes known to increase the risk of disease in
+                      offspring when your partner also has a change in the same gene (for example Cystic Fibrosis).
+                    td
+                      #{ patient.reproductive_risk }
+                    td
+                      div.radio
+                        label
+                          input(type='radio', name='reproductive_choice')
+                          | Yes
+                      div.radio
+                        label
+                          input(type='radio', name='reproductive_choice')
+                          | No

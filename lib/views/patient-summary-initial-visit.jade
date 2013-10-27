@@ -22,8 +22,6 @@ block content
           Referrer #{ patient.referrer.name }
            #{ patient.referrer.clinic }
 
-    // [% change %]
-
     table.table
       th
         td Coincidental variation category
@@ -33,42 +31,36 @@ block content
         td
           p
             b Medically actionable disease causing variations
-          p  changes in genes known to cause diseases that are treatable (for
-          example breast cancer).
-      
+          p  changes in genes known to cause diseases that are treatable (for example breast cancer).
+        td
           #{ patient.actionable_risk }
+        td
           #{ patient.actionable_choice }
       tr
         td 
           p
             b Medically unactionable disease causing variations
-          p changes in genes known to cause diseases that are not yet
-          treatable (for example Huntington's disease).
-
+          p changes in genes known to cause diseases that are not yet treatable (for example Huntington's disease).
+        td
           #{ patient.unactionable_risk }
+        td
           #{ patient.unactionable_choice }
       tr
         td
           p 
             b Predisposition variations
-          p changes in genes known to increase the risk (never to 100%) of
-          certain diseases (for example Alhzeimers)
-
+          p changes in genes known to increase the risk (never to 100%) of certain diseases (for example Alhzeimers)
+        td
           #{ patient.predisposition_risk }
+        td
           #{ patient.predisposition_choice }
       - if patient.age < 50
         tr
           td
             p
               b Reproductive variations (autosomal recessive carrier status)
-            p changes in genes known to increase the risk of disease in
-            offspring when your partner also has a change in the same gene
-            (for example Cystic Fibrosis).
-
+            p changes in genes known to increase the risk of disease in offspring when your partner also has a change in the same gene (for example Cystic Fibrosis).
+          td
             #{ patient.reproductive_risk }
+          td
             #{ patient.reproductive_choice }
-
-      //  [% change %]
-  
- 
-    
