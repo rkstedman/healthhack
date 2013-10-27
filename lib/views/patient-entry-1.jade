@@ -2,18 +2,18 @@ extends layout
 
 block content
   div.container
-    h1 Input Form
+    h1 Please enter the following details.
     form(role='form')
       div.row
         div.form-group.col-md-6
-          label.control-label Gender
+          label.control-label Sex
             div.radio
               label
-                input(type='radio', name='gender')
+                input(type='radio', name='sex')
                 | Male
             div.radio
               label
-                input(type='radio', name='gender')
+                input(type='radio', name='sex')
                 | Female
         div.form-group.col-md-6
           label.control-label Ethnicity
@@ -22,6 +22,7 @@ block content
                 select.form-control(name='ethnicity')
                   option Caucasian
                   option African American
+                  option Ashkenazi Jewish
                   option Other
       div.row
         div.form-group.col-md-6
