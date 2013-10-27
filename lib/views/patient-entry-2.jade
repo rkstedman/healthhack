@@ -12,89 +12,90 @@ block content
       discussed with you, your test may also display variations that fit
       within one of the following four categories.
 
-    P Please select which categories you wish to be informed about.
+    P Please select which categories you wish to be informed about should a
+    gene mutation exist.
 
-    table
-      th
-        td Coincidental variation category
-        td Your projected risk
-        td Your choice
-      tr
-        td
-          p
-            b Medically actionable disease causing variations
-          p  changes in genes known to cause diseases that are treatable (for
-          example breast cancer).
-      
-          [% projected risk %]
-
-          div.radio
-            label
-              input(type='radio', name='actionable')
-              | Yes
-          div.radio
-            label
-              input(type='radio', name='actionable')
-              | No
-      tr
-        td 
-          p
-            b Medically unactionable disease causing variations
-          p changes in genes known to cause diseases that are not yet
-          treatable (for example Huntington's disease).
-
-          [% projected risk %]
-
-          div.radio
-            label
-              input(type='radio', name='unactionable')
-              | Yes
-          div.radio
-            label
-              input(type='radio', name='unactionable')
-              | No
-
-      tr
-        td
-          p 
-            b Predisposition variations
-          p changes in genes known to increase the risk (never to 100%) of
-          certain diseases (for example Alhzeimers)
-
-          [% projected risk %]
-
-          div.radio
-            label
-              input(type='radio', name='predisposition')
-              | Yes
-          div.radio
-            label
-              input(type='radio', name='predisposition')
-              | No
-
-      .if age < 50
+    form(role='form')
+      table.table
+        th
+          td Coincidental variation category
+          td Your projected risk
+          td Your choice
         tr
           td
             p
-              b Reproductive variations (autosomal recessive carrier
-              status)
-            p changes in genes known to increase the risk of disease in
-            offspring when your partner also has a change in the same gene
-            (for example Cystic Fibrosis).
-
-            [% projected risk %]
-
+              b Medically actionable disease causing variations
+            p  changes in genes known to cause diseases that are treatable (for
+            example breast cancer).
+        
+            #{ patient.actionable_risk }
+  
             div.radio
               label
-                input(type='radio', name='reproductive')
+                input(type='radio', name='actionable_choice')
                 | Yes
             div.radio
               label
-                input(type='radio', name='reproductive')
+                input(type='radio', name='actionable_choice')
                 | No
-      .if
-
-      form(role='form')
+        tr
+          td 
+            p
+              b Medically unactionable disease causing variations
+            p changes in genes known to cause diseases that are not yet
+            treatable (for example Huntington's disease).
+  
+            #{ patient.unactionable_risk }
+  
+            div.radio
+              label
+                input(type='radio', name='unactionable_choice')
+                | Yes
+            div.radio
+              label
+                input(type='radio', name='unactionable_choice')
+                | No
+  
+        tr
+          td
+            p 
+              b Predisposition variations
+            p changes in genes known to increase the risk (never to 100%) of
+            certain diseases (for example Alhzeimers)
+  
+            #{ patient.predisposition_risk }
+  
+            div.radio
+              label
+                input(type='radio', name='predisposition_choice')
+                | Yes
+            div.radio
+              label
+                input(type='radio', name='predisposition_choice')
+                | No
+  
+        - if patient.age < 50
+          tr
+            td
+              p
+                b Reproductive variations (autosomal recessive carrier
+                status)
+              p changes in genes known to increase the risk of disease in
+              offspring when your partner also has a change in the same gene
+              (for example Cystic Fibrosis).
+  
+              #{ patient.reproductive_risk }
+  
+              div.radio
+                label
+                  input(type='radio', name='reproductive_choice')
+                  | Yes
+              div.radio
+                label
+                  input(type='radio', name='reproductive_choice')
+                  | No
+        .if
+  
         input(type='radio', name='agree') Continue
-
-
+  
+  
