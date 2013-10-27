@@ -132,24 +132,24 @@
                         label
                           input(type='radio', name='predisposition_choice')
                           | No
-
-                  tr
-                    td
-                      p
-                        b Reproductive variations (autosomal recessive carrier status)
-                      p changes in genes known to increase the risk of disease in
-                      offspring when your partner also has a change in the same gene (for example Cystic Fibrosis).
-                    td
-                      #{ patient.reproductive_risk }
-                    td
-                      div.radio
-                        label
-                          input(type='radio', name='reproductive_choice')
-                          | Yes
-                      div.radio
-                        label
-                          input(type='radio', name='reproductive_choice')
-                          | No
+                  if patient.profile.age < 50
+                    tr
+                      td
+                        p
+                          b Reproductive variations (autosomal recessive carrier status)
+                        p changes in genes known to increase the risk of disease in
+                        offspring when your partner also has a change in the same gene (for example Cystic Fibrosis).
+                      td
+                        #{ patient.reproductive_risk }
+                      td
+                        div.radio
+                          label
+                            input(type='radio', name='reproductive_choice')
+                            | Yes
+                        div.radio
+                          label
+                            input(type='radio', name='reproductive_choice')
+                            | No
   .row
     .col-lg-12
       p(style='padding-top:10px')
