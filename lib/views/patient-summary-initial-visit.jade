@@ -1,21 +1,24 @@
 extends layout
 
-[% email to me, print %]
+//- Email or print
 
 block content
   div.container
     h1 Your summary
-      div.row
+    div.row
         div.form-group.col-md-6
-          Sex [% sex %]
-      div.row
+          Primary diagnosis #{ patient.primary_diagnosis }
+    div.row
         div.form-group.col-md-6
-          Ethnicity [% ethnicity %]
-      div.row
+          Sex #{ patient.sex }
+    div.row
         div.form-group.col-md-6
-          Year of birth [% year of birth %]
+          Ethnicity #{ patient.ethnicity }
+    div.row
+        div.form-group.col-md-6
+          Year of birth #{ patient.year_of_birth }
 
-      [% change %]
+    // [% change %]
 
     table
       th
@@ -29,8 +32,8 @@ block content
           p  changes in genes known to cause diseases that are treatable (for
           example breast cancer).
       
-          [% projected risk %]
-          [% answer %]
+          #{ patient.actionable_risk }
+          #{ patient.actionable_choice }
       tr
         td 
           p
@@ -38,8 +41,8 @@ block content
           p changes in genes known to cause diseases that are not yet
           treatable (for example Huntington's disease).
 
-          [% projected risk %]
-          [% answer %]
+          #{ patient.unactionable_risk }
+          #{ patient.unactionable_choice }
       tr
         td
           p 
@@ -47,9 +50,9 @@ block content
           p changes in genes known to increase the risk (never to 100%) of
           certain diseases (for example Alhzeimers)
 
-          [% projected risk %]
-          [% answer %]
-      .if age < 50
+          #{ patient.predisposition_risk }
+          #{ patient.predisposition_choice }
+      - if patient.age < 50
         tr
           td
             p
@@ -58,10 +61,10 @@ block content
             offspring when your partner also has a change in the same gene
             (for example Cystic Fibrosis).
 
-            [% projected risk %]
-            [% answer %]
+            #{ patient.reproductive_risk }
+            #{ patient.reproductive_choice }
 
-      [% change %]
+      //  [% change %]
   
  
     
