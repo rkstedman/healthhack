@@ -1,4 +1,4 @@
-extends layout
+extends ../layout
 
 //- Email or print
 
@@ -7,26 +7,26 @@ block content
     h1 Your summary
     div.row
         div.form-group.col-md-6
-          Primary diagnosis #{ patient.primary_diagnosis }
+          | Primary diagnosis: Tuberosis Sclerosis
     div.row
         div.form-group.col-md-6
-          Sex #{ patient.sex }
+          | Sex: #{ patient.profile.sex }
     div.row
         div.form-group.col-md-6
-          Ethnicity #{ patient.ethnicity }
+          | Ethnicity: #{ patient.profile.ethnicity }
     div.row
         div.form-group.col-md-6
-          Year of birth #{ patient.year_of_birth }
+          | Age: #{ patient.profile.age }
     div.row
         div.form-group.col-md-6
-          Referrer #{ patient.referrer.name }
-           #{ patient.referrer.clinic }
+          Referrer #{ patient.profile.referrer.name }
+           #{ patient.profile.referrer.clinic }
 
     table.table
-      th
-        td Coincidental variation category
-        td Your projected risk
-        td Your choice
+      tr
+        th Coincidental variation category
+        th Your projected risk
+        th Your choice
       tr
         td
           p
@@ -54,7 +54,7 @@ block content
           #{ patient.predisposition_risk }
         td
           #{ patient.predisposition_choice }
-      - if patient.profile.age < 50
+      if patient.profile.age < 50
         tr
           td
             p
@@ -64,4 +64,3 @@ block content
             #{ patient.reproductive_risk }
           td
             #{ patient.reproductive_choice }
-      .if
