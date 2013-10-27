@@ -33,27 +33,27 @@ block content
             b Medically actionable disease causing variations
           p  changes in genes known to cause diseases that are treatable (for example breast cancer).
         td
-          #{ patient.actionable_risk }
+          | 2%
         td
-          #{ patient.actionable_choice }
+          | Yes
       tr
         td 
           p
             b Medically unactionable disease causing variations
           p changes in genes known to cause diseases that are not yet treatable (for example Huntington's disease).
         td
-          #{ patient.unactionable_risk }
+          | Unknown
         td
-          #{ patient.unactionable_choice }
+          | No
       tr
         td
           p 
             b Predisposition variations
           p changes in genes known to increase the risk (never to 100%) of certain diseases (for example Alhzeimers)
         td
-          #{ patient.predisposition_risk }
+          | 5%
         td
-          #{ patient.predisposition_choice }
+          | Yes
       if patient.profile.age < 50
         tr
           td
@@ -61,6 +61,6 @@ block content
               b Reproductive variations (autosomal recessive carrier status)
             p changes in genes known to increase the risk of disease in offspring when your partner also has a change in the same gene (for example Cystic Fibrosis).
           td
-            #{ patient.reproductive_risk }
+            | 20%
           td
-            #{ patient.reproductive_choice }
+            | Yes
