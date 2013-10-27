@@ -1,7 +1,7 @@
 .container
   .row
     .col-lg-12
-      h2 Patient View
+      h2 My GeKnow
       .panel-group#accordion
         .panel.panel-default
           .panel-heading
@@ -13,5 +13,49 @@
                 p A Whole Exome Sequencing (WES) may show a genetic component to your disease but it is also possible that your genes are not at fault.  Because this test sequences your entire genome, it is also possible that other diseases or predispositions to other diseases may also be found.
                 p All data submitted to this system will be kept strictly confidential.
                 form(role='form')
-                  input(type='checkbox',name='agree') I understand.
+                  .form-group
+                    .checkbox
+                      label
+                        input(type='checkbox',name='consent',value='consent')
+                        | I understand
+        .panel.panel-default
+          .panel-heading
+            h4.panel-title
+              a.accordion-toggle(data-toggle="collapse",data-parent="#accordion",href="#collapseTwo") Patient Details
+          
+          #collapseTwo(class="panel-collapse collapse in")
+            .panel-body
+              form(role='form')
+                .form-group
+                  label.control-lable Primary diagnosis 
+                  textarea.form-control(rows='5',name='diagnosis') #{patient.profile.referrer.notes}
+                .form-group
+                  label.control-lable Primary diagnosis 
+                  textarea.form-control(rows='5',name='familyHistory') #{patient.profile.referrer.notes}
+                .form-group  
+                  .radio
+                    label
+                      input(type='radio',name='sex',value='male',checked)
+                      | Male
+                  .radio
+                    label
+                      input(type='radio', name='sex',value='female')
+                      | Female
+                .form-group
+                  label.control-label Ethnicity
+                  .radio
+                    label
+                      select.form-control(name='ethnicity')
+                        option Caucasian
+                        option African American
+                        option Ashkenazi Jewish
+                        option Other
+                .form-group  
+                  label.control-label Year of birth
+                  .radio
+                    label
+                      select.form-control(name='birthyear')
+                      - for (var year = 1900; year < 2000; year++)
+                        option #{year}
+            
             
