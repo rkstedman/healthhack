@@ -17,10 +17,14 @@ block content
     div.row
         div.form-group.col-md-6
           Year of birth #{ patient.year_of_birth }
+    div.row
+        div.form-group.col-md-6
+          Referrer #{ patient.referrer.name }
+           #{ patient.referrer.clinic }
 
     // [% change %]
 
-    table
+    table.table
       th
         td Coincidental variation category
         td Your projected risk
