@@ -27,10 +27,10 @@
             .panel-body
               form(role='form')
                 .form-group
-                  label.control-lable Primary diagnosis 
+                  label.control-label Primary diagnosis 
                   textarea.form-control(rows='5',name='diagnosis') #{patient.profile.referrer.notes}
                 .form-group
-                  label.control-lable Primary diagnosis 
+                  label.control-label Primary diagnosis 
                   textarea.form-control(rows='5',name='familyHistory') #{patient.profile.referrer.notes}
                 .form-group  
                   .radio
@@ -57,5 +57,7 @@
                       select.form-control(name='birthyear')
                       - for (var year = 1900; year < 2000; year++)
                         option #{year}
-            
+                .form-group
+                  label.control-label Age
+                  p.form-control-static #{patient.profile.age}
             
