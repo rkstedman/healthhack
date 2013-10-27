@@ -10,8 +10,4 @@ block content
           li(class="#{view === 'patient' ? 'active' : ''}")
             a(href='/patients/#{patient._id}?view=patient') Patient View
   
-  - if(view === 'patient')
-    include patientView.jade
-  - else
-    include clinicianView.jade
-      
+  include patientView.jade    
