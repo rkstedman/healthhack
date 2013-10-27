@@ -16,13 +16,23 @@ html
           a.navbar-brand(href='/')
             img(src='/images/geknow_logo.png')
         .collapse.navbar-collapse
-          ul.nav.navbar-nav.navbar-right
-            li(class="#{page === 'home' ? 'active' : ''}")
-                a(href='/') Home
-            li(class="#{page === 'about' ? 'active' : ''}")
-                a(href='/about') About
+          .col-sm-3.col-md-3.pull-right
+            form.navbar-form(role="search")
+              .input-group.input-group-sm
+                input.form-control(type="text",placeholder="search patients",name="srch-term",id="srch-term")
+                .input-group-btn
+                  button.btn.btn-default(type="submit")
+                    i.glyphicon.glyphicon-search
               
     block content
+    
+    .container
+      hr
+      footer
+        .row
+          .col-lg-12
+            p HealthHack 2013 &middot; 
+              a(href="/about") About
   
 script(src='/javascripts/jquery.min.js')
 script(src='/javascripts/jquery.min.map')
