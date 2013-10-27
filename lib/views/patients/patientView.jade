@@ -55,8 +55,8 @@
                   .radio
                     label
                       select.form-control(name='birthyear')
-                      - for (var year = 1900; year < 2000; year++)
-                        option #{year}
+                        - for (var year = 1900; year < 2000; year++)
+                          option #{year}
                 .form-group
                   label.control-label Age
                   p.form-control-static #{patient.profile.age}
@@ -89,7 +89,7 @@
                         b Medically actionable disease causing variations
                       p  changes in genes known to cause diseases that are treatable (for example breast cancer).
                     td
-                      #{ patient.actionable_risk }
+                      | 2%
                     td
                       div.radio
                         label
@@ -105,7 +105,7 @@
                         b Medically unactionable disease causing variations
                       p changes in genes known to cause diseases that are not yet treatable (for example Huntington's disease).
                     td
-                      #{ patient.unactionable_risk }
+                      | Unknown
                     td
                       div.radio
                         label
@@ -122,7 +122,7 @@
                         b Predisposition variations
                       p changes in genes known to increase the risk (never to 100%) of certain diseases (for example Alhzeimers)
                     td
-                      #{ patient.predisposition_risk }
+                      | 5%
                     td
                       div.radio
                         label
@@ -140,7 +140,7 @@
                         p changes in genes known to increase the risk of disease in
                         offspring when your partner also has a change in the same gene (for example Cystic Fibrosis).
                       td
-                        #{ patient.reproductive_risk }
+                        | 20%
                       td
                         div.radio
                           label
