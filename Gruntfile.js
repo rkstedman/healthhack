@@ -20,7 +20,8 @@ module.exports = function(grunt) {
         { expand: true, flatten: true, src: 'public/components/jquery/jquery.min.map', dest: 'public/javascripts/', filter: 'isFile'},
         { expand: true, flatten: true, src: 'public/components/bootstrap/dist/js/bootstrap.js', dest: 'public/javascripts/', filter: 'isFile' },
         { expand: true, flatten: true, src: 'public/components/bootstrap/dist/css/bootstrap.css', dest: 'public/stylesheets/', filter: 'isFile'},
-        { expand: true, flatten: true, src: 'public/components/bootstrap/dist/fonts/*', dest: 'public/fonts/', filter: 'isFile' }
+        { expand: true, flatten: true, src: 'public/components/bootstrap/dist/fonts/*', dest: 'public/fonts/', filter: 'isFile' },
+        { expand: true, flatten: true, src: 'public/components/angular/angular.js', dest: 'public/javascripts/', filter: 'isFile' }
 	]
       }
     },
