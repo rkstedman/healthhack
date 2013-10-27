@@ -9,8 +9,9 @@ block content
         th Last Name
         th Pre-consult Appointment
         th Post-consult Appointment
-      tr(ng-repeat='p in patientData')
-        td {{ p._id }}
+      tr(ng-repeat="p in patientData | filter:nameFilter")
+        td
+          a(href='/patients/{{p._id}}') {{ p._id }}
         td {{ p.firstName }}
         td {{ p.lastName }}
         td {{ p.appointments[0].time | date:'medium' }}
