@@ -28,10 +28,12 @@
               form(role='form')
                 .form-group
                   label.control-label Primary diagnosis 
-                  textarea.form-control(rows='5',name='diagnosis') #{patient.profile.referrer.notes}
+                  textarea.form-control(rows='5',name='diagnosis') 
+                    | {{patient.profile.referrer.notes}}
                 .form-group
                   label.control-label Primary diagnosis 
-                  textarea.form-control(rows='5',name='familyHistory') #{patient.profile.referrer.notes}
+                  textarea.form-control(rows='5',name='familyHistory') 
+                    | {{patient.profile.referrer.notes}}
                 .form-group  
                   .radio
                     label
@@ -45,21 +47,17 @@
                   label.control-label Ethnicity
                   .radio
                     label
-                      select.form-control(name='ethnicity')
-                        option Caucasian
-                        option African American
-                        option Ashkenazi Jewish
-                        option Other
+                      select.form-control(ng-model='patient.profile.ethnicity', ng-options='e for e in ethnicityOpts')
                 .form-group  
                   label.control-label Year of birth
                   .radio
                     label
-                      select.form-control(name='birthyear')
-                        - for (var year = 1900; year < 2000; year++)
-                          option #{year}
+                      select.form-control(ng-model='yearOfBirth',
+                        ng-options='y for y in yearOpts')
                 .form-group
                   label.control-label Age
-                  p.form-control-static #{patient.profile.age}
+                  p.form-control-static 
+                    | {{patient.profile.age}}
                   
         .panel.panel-default
           .panel-heading
@@ -132,26 +130,24 @@
                         label
                           input(type='radio', name='predisposition_choice')
                           | No
-                  if patient.profile.age < 50
-                    tr
-                      td
-                        p
-                          b Reproductive variations (autosomal recessive carrier status)
-                        p changes in genes known to increase the risk of disease in
-                        offspring when your partner also has a change in the same gene (for example Cystic Fibrosis).
-                      td
-                        | 20%
-                      td
-                        div.radio
-                          label
-                            input(type='radio', name='reproductive_choice')
-                            | Yes
-                        div.radio
-                          label
-                            input(type='radio', name='reproductive_choice')
-                            | No
+                  tr
+                    td
+                      p
+                        b Reproductive variations (autosomal recessive carrier status)
+                      p changes in genes known to increase the risk of disease in offspring when your partner also has a change in the same gene (for example Cystic Fibrosis).
+                    td
+                      | 20%
+                    td
+                      div.radio
+                        label
+                          input(type='radio', name='reproductive_choice')
+                          | Yes
+                      div.radio
+                        label
+                          input(type='radio', name='reproductive_choice')
+                          | No
   .row
     .col-lg-12
       p(style='padding-top:10px')
-        a(href='/patients/#{patient._id}/print')
+        a(href='/patients/print')
           button.btn.btn-primary(type="button") Print Summary
