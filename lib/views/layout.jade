@@ -12,7 +12,7 @@ html
     link(rel='stylesheet', href='http://fonts.googleapis.com/css?family=Bitter:400,700,400italic')
     link(rel='stylesheet', href='/css/bootstrap.css')
     link(rel='stylesheet', href='/css/style.css')
-  body(ng-app='geKnowApp')
+  body(ng-app='geKnowApp', ng-controller='MainCtrl')
     .navbar.navbar-inverse.navbar-fixed-top
       .container
         .navbar-header
@@ -26,9 +26,9 @@ html
           .col-sm-3.col-md-3.pull-right
             form.navbar-form
               .input-group.input-group-sm
-                input.form-control(type="text",placeholder="search patients")
+                input.form-control(type="text",ng-model='searchStr',placeholder="search patients")
                 .input-group-btn
-                  button.btn.btn-default
+                  button.btn.btn-default(ng-click='searchPatient(searchStr)')
                     i.glyphicon.glyphicon-search
               
     .container
