@@ -1,0 +1,82 @@
+table.table
+	tr
+		th Coincidental variation category
+		th Your projected risk
+		th Your choice
+	tr
+		td
+			p
+				b Medically actionable disease causing variations
+			p  changes in genes known to cause diseases that are treatable (for example breast cancer).
+		td
+			| 2%
+		td
+			div(ng-if="!readOnly")
+				div.radio
+					label
+						input(type='radio', name='actionable_choice')
+						| Yes
+				div.radio
+					label
+						input(type='radio', name='actionable_choice')
+						| No
+			div(ng-if="readOnly")
+				| placeholder
+	tr
+		td 
+			p
+				b Medically unactionable disease causing variations
+			p changes in genes known to cause diseases that are not yet treatable (for example Huntington's disease).
+		td
+			| Unknown
+		td
+			div(ng-if="!readOnly")
+				div.radio
+					label
+						input(type='radio', name='actionable_choice')
+						| Yes
+				div.radio
+					label
+						input(type='radio', name='actionable_choice')
+						| No
+			div(ng-if="readOnly")
+				| placeholder
+
+	tr
+		td
+			p 
+				b Predisposition variations
+			p changes in genes known to increase the risk (never to 100%) of certain diseases (for example Alhzeimers)
+		td
+			| 5%
+		td
+			div(ng-if="!readOnly")
+				div.radio
+					label
+						input(type='radio', name='actionable_choice')
+						| Yes
+				div.radio
+					label
+						input(type='radio', name='actionable_choice')
+						| No
+			div(ng-if="readOnly")
+				| placeholder
+	tr
+		td
+			p
+				b Reproductive variations (autosomal recessive carrier status)
+			p changes in genes known to increase the risk of disease in offspring when your partner also has a change in the same gene (for example Cystic Fibrosis).
+		td
+			| 20%
+		td
+			div(ng-if="!readOnly")
+				div.radio
+					label
+						input(type='radio', name='actionable_choice')
+						| Yes
+				div.radio
+					label
+						input(type='radio', name='actionable_choice')
+						| No
+			div(ng-if="readOnly")
+				| placeholder

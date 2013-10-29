@@ -13,6 +13,10 @@ angular.module('geKnowApp', ['ngRoute', 'ngResource'])
       templateUrl: '/views/patients/patientView',
       controller: 'PatientViewCtrl'
     })
+    .when('/patientPrintView', {
+      templateUrl: '/views/patients/patientPrintView',
+      controller: 'PatientViewCtrl'
+    })
     .otherwise({
       redirectTo: '/'
     });
