@@ -16,12 +16,22 @@ module.exports = function(grunt) {
     copy: {
       deps: {
 	files: [ 
-        { expand: true, flatten: true, src: 'public/components/jquery/jquery.min.js', dest: 'public/javascripts/', filter: 'isFile'},
-        { expand: true, flatten: true, src: 'public/components/jquery/jquery.min.map', dest: 'public/javascripts/', filter: 'isFile'},
-        { expand: true, flatten: true, src: 'public/components/bootstrap/dist/js/bootstrap.js', dest: 'public/javascripts/', filter: 'isFile' },
-        { expand: true, flatten: true, src: 'public/components/bootstrap/dist/css/bootstrap.css', dest: 'public/stylesheets/', filter: 'isFile'},
-        { expand: true, flatten: true, src: 'public/components/bootstrap/dist/fonts/*', dest: 'public/fonts/', filter: 'isFile' },
-        { expand: true, flatten: true, src: 'public/components/angular/angular.js', dest: 'public/javascripts/', filter: 'isFile' }
+        { expand: true, flatten: true, src: 'public/components/jquery/jquery.min.js', 
+          dest: 'public/js/lib/', filter: 'isFile'},
+        { expand: true, flatten: true, src: 'public/components/jquery/jquery.min.map', 
+          dest: 'public/js/lib/', filter: 'isFile'},
+        { expand: true, flatten: true, src: 'public/components/bootstrap/dist/js/bootstrap.js', 
+          dest: 'public/js/lib/', filter: 'isFile' },
+        { expand: true, flatten: true, src: 'public/components/bootstrap/dist/css/bootstrap.css', 
+          dest: 'public/css/', filter: 'isFile'},
+        { expand: true, flatten: true, src: 'public/components/bootstrap/dist/fonts/*', 
+          dest: 'public/fonts/', filter: 'isFile' },
+        { expand: true, flatten: true, src: 'public/components/angular/angular.js', 
+          dest: 'public/js/lib/', filter: 'isFile' },
+        { expand: true, flatten: true, src: 'public/components/angular-route/angular-route.js', 
+          dest: 'public/js/lib/', filter: 'isFile' },
+        { expand: true, flatten: true, src: 'public/components/angular-resource/angular-resource.js', 
+          dest: 'public/js/lib/', filter: 'isFile' }
 	]
       }
     },

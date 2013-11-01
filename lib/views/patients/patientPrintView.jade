@@ -1,66 +1,20 @@
-extends ../layout
-
-//- Email or print
-
-block content
-  div.container
-    h1 Your summary
-    div.row
-        div.form-group.col-md-6
-          | Primary diagnosis: Tuberosis Sclerosis
-    div.row
-        div.form-group.col-md-6
-          | Sex: #{ patient.profile.sex }
-    div.row
-        div.form-group.col-md-6
-          | Ethnicity: #{ patient.profile.ethnicity }
-    div.row
-        div.form-group.col-md-6
-          | Age: #{ patient.profile.age }
-    div.row
-        div.form-group.col-md-6
-          Referrer #{ patient.profile.referrer.name }
-           #{ patient.profile.referrer.clinic }
-
-    table.table
-      tr
-        th Coincidental variation category
-        th Your projected risk
-        th Your choice
-      tr
-        td
-          p
-            b Medically actionable disease causing variations
-          p  changes in genes known to cause diseases that are treatable (for example breast cancer).
-        td
-          | 2%
-        td
-          | Yes
-      tr
-        td 
-          p
-            b Medically unactionable disease causing variations
-          p changes in genes known to cause diseases that are not yet treatable (for example Huntington's disease).
-        td
-          | Unknown
-        td
-          | No
-      tr
-        td
-          p 
-            b Predisposition variations
-          p changes in genes known to increase the risk (never to 100%) of certain diseases (for example Alhzeimers)
-        td
-          | 5%
-        td
-          | Yes
-      if patient.profile.age < 50
-        tr
-          td
-            p
-              b Reproductive variations (autosomal recessive carrier status)
-            p changes in genes known to increase the risk of disease in offspring when your partner also has a change in the same gene (for example Cystic Fibrosis).
-          td
-            | 20%
-          td
-            | Yes
+div.container
+  h1 Your summary
+  div.row
+      div.form-group.col-md-6
+        | Primary diagnosis: Tuberosis Sclerosis
+  div.row
+      div.form-group.col-md-6
+        | Sex: {{ patient.profile.sex }}
+  div.row
+      div.form-group.col-md-6
+        | Ethnicity: {{ patient.profile.ethnicity }}
+  div.row
+      div.form-group.col-md-6
+        | Age: {{ patient.profile.age }}
+  div.row
+      div.form-group.col-md-6
+        | Referrer: {{ patient.profile.referrer.name }}
+        br 
+        b {{ patient.profile.referrer.clinic }}
+  gk-consent-form(read-only='true')

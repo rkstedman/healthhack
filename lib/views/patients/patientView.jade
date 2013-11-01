@@ -1,157 +1,83 @@
 .container
-  .row
-    .col-lg-12
-      h2 My GeKnow
-      .panel-group#accordion
-        .panel.panel-default
-          .panel-heading
-            h4.panel-title
-              a.accordion-toggle(data-toggle="collapse",data-parent="#accordion",href="#collapseOne") Welcome
-          #collapseOne(class="panel-collapse collapse in")
-              .panel-body
-                p GeKnow attempts to explain the possible results of genetic testing. Your risks are influenced by a number of factors including your gender, ethnicity, age and family history.
-                p A Whole Exome Sequencing (WES) may show a genetic component to your disease but it is also possible that your genes are not at fault.  Because this test sequences your entire genome, it is also possible that other diseases or predispositions to other diseases may also be found.
-                p All data submitted to this system will be kept strictly confidential.
-                form(role='form')
-                  .form-group
-                    .checkbox
-                      label
-                        input(type='checkbox',name='consent',value='consent')
-                        | I understand
-        .panel.panel-default
-          .panel-heading
-            h4.panel-title
-              a.accordion-toggle(data-toggle="collapse",data-parent="#accordion",href="#collapseTwo") Patient Details
-          
-          #collapseTwo(class="panel-collapse collapse in")
-            .panel-body
-              form(role='form')
-                .form-group
-                  label.control-label Primary diagnosis 
-                  textarea.form-control(rows='5',name='diagnosis') #{patient.profile.referrer.notes}
-                .form-group
-                  label.control-label Primary diagnosis 
-                  textarea.form-control(rows='5',name='familyHistory') #{patient.profile.referrer.notes}
-                .form-group  
-                  .radio
-                    label
-                      input(type='radio',name='sex',value='male',checked)
-                      | Male
-                  .radio
-                    label
-                      input(type='radio', name='sex',value='female')
-                      | Female
-                .form-group
-                  label.control-label Ethnicity
-                  .radio
-                    label
-                      select.form-control(name='ethnicity')
-                        option Caucasian
-                        option African American
-                        option Ashkenazi Jewish
-                        option Other
-                .form-group  
-                  label.control-label Year of birth
-                  .radio
-                    label
-                      select.form-control(name='birthyear')
-                        - for (var year = 1900; year < 2000; year++)
-                          option #{year}
-                .form-group
-                  label.control-label Age
-                  p.form-control-static #{patient.profile.age}
-                  
-        .panel.panel-default
-          .panel-heading
-            h4.panel-title
-              a.accordion-toggle(data-toggle="collapse",data-parent="#accordion",href="#collapseThree") Coincidental findings
-          #collapseThree(class="panel-collapse collapse in")
-            .panel-body
-              p Variations in our genes is what makes us unique as people, and most
-                of these variations are benign, having no affect on our appearance,
-                our behaviour or our risk of disease.
+	.row
+		.col-lg-12
+			h2 My GeKnow
+			.panel-group#accordion
+				.panel.panel-default
+					.panel-heading
+						h4.panel-title
+							a.accordion-toggle(data-toggle="collapse",data-parent="#accordion",href="#collapseOne") Welcome
+					#collapseOne(class="panel-collapse collapse in")
+							.panel-body
+								p GeKnow attempts to explain the possible results of genetic testing. Your risks are influenced by a number of factors including your gender, ethnicity, age and family history.
+								p A Whole Exome Sequencing (WES) may show a genetic component to your disease but it is also possible that your genes are not at fault.  Because this test sequences your entire genome, it is also possible that other diseases or predispositions to other diseases may also be found.
+								p All data submitted to this system will be kept strictly confidential.
+								form(role='form')
+									.form-group
+										.checkbox
+											label
+												input(type='checkbox',name='consent',value='consent')
+												| I understand
+				.panel.panel-default
+					.panel-heading
+						h4.panel-title
+							a.accordion-toggle(data-toggle="collapse",data-parent="#accordion",href="#collapseTwo") Patient Details
+					
+					#collapseTwo(class="panel-collapse collapse in")
+						.panel-body
+							form(role='form')
+								.form-group
+									label.control-label Primary diagnosis 
+									textarea.form-control(rows='5',name='diagnosis') 
+										| {{patient.profile.referrer.notes}}
+								.form-group
+									label.control-label Primary diagnosis 
+									textarea.form-control(rows='5',name='familyHistory') 
+										| {{patient.profile.referrer.notes}}
+								.form-group  
+									.radio
+										label
+											input(type='radio',name='sex',value='male',checked)
+											| Male
+									.radio
+										label
+											input(type='radio', name='sex',value='female')
+											| Female
+								.form-group
+									label.control-label Ethnicity
+									.radio
+										label
+											select.form-control(ng-model='patient.profile.ethnicity', ng-options='e for e in ethnicityOpts')
+								.form-group  
+									label.control-label Year of birth
+									.radio
+										label
+											input(type='date', ng-model='patient.profile.birthdate')
+								.form-group
+									label.control-label Age
+									p.form-control-static 
+										| {{patient.profile.age}}
+									
+				.panel.panel-default
+					.panel-heading
+						h4.panel-title
+							a.accordion-toggle(data-toggle="collapse",data-parent="#accordion",href="#collapseThree") Coincidental findings
+					#collapseThree(class="panel-collapse collapse in")
+						.panel-body
+							p Variations in our genes is what makes us unique as people, and most
+								of these variations are benign, having no affect on our appearance,
+								our behaviour or our risk of disease.
 
-              p In addition to the target gene variations that your geneticist has
-                discussed with you, your test may also display variations that fit
-                within one of the following four categories.
+							p In addition to the target gene variations that your geneticist has
+								discussed with you, your test may also display variations that fit
+								within one of the following four categories.
 
-              P Please select which categories you wish to be informed about should a gene mutation exist.
+							P Please select which categories you wish to be informed about should a gene mutation exist.
 
-              form(role='form')
-                table.table
-                  tr
-                    th Coincidental variation category
-                    th Your projected risk
-                    th Your choice
-                  tr
-                    td
-                      p
-                        b Medically actionable disease causing variations
-                      p  changes in genes known to cause diseases that are treatable (for example breast cancer).
-                    td
-                      | 2%
-                    td
-                      div.radio
-                        label
-                          input(type='radio', name='actionable_choice')
-                          | Yes
-                      div.radio
-                        label
-                          input(type='radio', name='actionable_choice')
-                          | No
-                  tr
-                    td 
-                      p
-                        b Medically unactionable disease causing variations
-                      p changes in genes known to cause diseases that are not yet treatable (for example Huntington's disease).
-                    td
-                      | Unknown
-                    td
-                      div.radio
-                        label
-                          input(type='radio', name='unactionable_choice')
-                          | Yes
-                      div.radio
-                        label
-                          input(type='radio', name='unactionable_choice')
-                          | No
-
-                  tr
-                    td
-                      p 
-                        b Predisposition variations
-                      p changes in genes known to increase the risk (never to 100%) of certain diseases (for example Alhzeimers)
-                    td
-                      | 5%
-                    td
-                      div.radio
-                        label
-                          input(type='radio', name='predisposition_choice')
-                          | Yes
-                      div.radio
-                        label
-                          input(type='radio', name='predisposition_choice')
-                          | No
-                  if patient.profile.age < 50
-                    tr
-                      td
-                        p
-                          b Reproductive variations (autosomal recessive carrier status)
-                        p changes in genes known to increase the risk of disease in
-                        offspring when your partner also has a change in the same gene (for example Cystic Fibrosis).
-                      td
-                        | 20%
-                      td
-                        div.radio
-                          label
-                            input(type='radio', name='reproductive_choice')
-                            | Yes
-                        div.radio
-                          label
-                            input(type='radio', name='reproductive_choice')
-                            | No
-  .row
-    .col-lg-12
-      p(style='padding-top:10px')
-        a(href='/patients/#{patient._id}/print')
-          button.btn.btn-primary(type="button") Print Summary
+							form(role='form')
+								gk-consent-form(read-only='false')
+	.row
+		.col-lg-12
+			p(style='padding-top:10px')
+				a(href='#/patientPrintView?id={{patient._id}}')
+					button.btn.btn-primary(type="button") Print Summary

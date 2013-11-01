@@ -1,20 +1,16 @@
-extends ../layout
+.container
+  table.table.table-condensed.table-hover
+    tr
+      th UID
+      th First Name
+      th Last Name
+      th Pre-consult Appointment
+      th Post-consult Appointment
+    tr(ng-repeat="p in patientData | filter:nameFilter")
+      td
+        a(href='#/patientView?id={{p._id}}') {{ p._id }}
+      td {{ p.firstName }}
+      td {{ p.lastName }}
+      td {{ p.appointments[0].time | date:'medium' }}
+      td {{ p.appointments[1].time | date:'medium' }}
 
-block content
-  .container(ng-app='patientList', ng-controller='PatientListCtrl')
-    table.table.table-condensed.table-hover
-      tr
-        th UID
-        th First Name
-        th Last Name
-        th Pre-consult Appointment
-        th Post-consult Appointment
-      tr(ng-repeat="p in patientData | filter:nameFilter")
-        td
-          a(href='/patients/{{p._id}}') {{ p._id }}
-        td {{ p.firstName }}
-        td {{ p.lastName }}
-        td {{ p.appointments[0].time | date:'medium' }}
-        td {{ p.appointments[1].time | date:'medium' }}
-        
-  script(src='/javascripts/patientList/patientListCtrl.js')
